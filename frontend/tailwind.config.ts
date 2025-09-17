@@ -13,6 +13,8 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       colors: {
+        'sense-blue': "#5087FA",
+        'sense-black-blue': "#222836",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
