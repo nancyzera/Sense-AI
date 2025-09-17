@@ -5,11 +5,11 @@ import NotFound from './pages/NotFound'
 
 const App = () => {
   return (
-    <div>
+    <>
       <Routes>
         <Route path='*' element={<NotFound />} />
       </Routes>
-    </div>
+    </>
   )
 }
 

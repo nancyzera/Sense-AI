@@ -1,6 +1,31 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+html {
+  font-family: "Inter", sans-serif !important;
+  background-color: #1a1f2e;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #1a1f2e;
+}
+
+
+::-webkit-scrollbar {
+  width: 6px;
+  scrollbar-color: #d1d5db;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #5087FA;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0);
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
