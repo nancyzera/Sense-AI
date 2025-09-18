@@ -10,6 +10,7 @@ import dotenv from 'dotenv';
 
 // Import routes
 import authRoutes from './routes/authRoutes.js';
+import aiRoutes from './routes/aiRoutes.js';
 
 // Import middleware
 import { handleValidationErrors } from './middleware/validationMiddleware.js';
@@ -99,6 +100,7 @@ app.get('/health', (req, res) => {
 
 // API routes
 app.use('/api/auth', authRoutes);
+app.use('/api/ai', aiRoutes);
 
 // API documentation endpoint
 app.get('/api', (req, res) => {

@@ -1,0 +1,310 @@
+{
+  "baseUrl": "http://localhost:5000",
+  "endpoints": {
+    "aiStatus": {
+      "method": "GET",
+      "url": "{{baseUrl}}/api/ai/status",
+      "headers": {},
+      "body": null,
+      "expectedResponse": {
+        "success": true,
+        "message": "AI services status retrieved successfully",
+        "data": {
+          "status": {
+            "chat": {
+              "available": true,
+              "status": {
+                "groq": { "available": false, "limits": null },
+                "huggingFace": { "available": false, "limits": null },
+                "localFallback": { "available": true, "limits": null }
+              }
+            },
+            "speechToText": {
+              "available": true,
+              "status": {
+                "google": { "available": false, "limits": null },
+                "azure": { "available": false, "limits": null },
+                "whisper": { "available": true, "limits": { "description": "Local processing - no limits" } },
+                "localFallback": { "available": true, "limits": { "description": "Basic fallback - limited accuracy" } }
+              }
+            },
+            "textToSpeech": {
+              "available": true,
+              "status": {
+                "google": { "available": false, "limits": null },
+                "azure": { "available": false, "limits": null },
+                "localFallback": { "available": true, "limits": { "description": "Basic fallback - limited quality" } }
+              }
+            }
+          },
+          "recommendations": [
+            {
+              "service": "Groq",
+              "description": "Free tier with 14,400 requests/day",
+              "url": "https://console.groq.com/",
+              "priority": "high",
+              "reason": "Fastest and most generous free tier for chat"
+            }
+          ],
+          "setupGuide": "See AI_SERVICES_SETUP.md for detailed setup instructions"
+        }
+      }
+    },
+    "aiRecommendations": {
+      "method": "GET",
+      "url": "{{baseUrl}}/api/ai/recommendations",
+      "headers": {},
+      "body": null,
+      "expectedResponse": {
+        "success": true,
+        "message": "AI setup recommendations retrieved successfully",
+        "data": {
+          "recommendations": [
+            {
+              "service": "Groq",
+              "description": "Free tier with 14,400 requests/day",
+              "url": "https://console.groq.com/",
+              "priority": "high",
+              "reason": "Fastest and most generous free tier for chat"
+            },
+            {
+              "service": "Google Cloud Speech",
+              "description": "Free tier with 60 minutes/month",
+              "url": "https://console.cloud.google.com/",
+              "priority": "high",
+              "reason": "Best free speech-to-text service"
+            }
+          ],
+          "configuredServices": ["Local Fallback Services"],
+          "nextSteps": [
+            "1. Get API keys from recommended services",
+            "2. Add API keys to your .env file",
+            "3. Restart your server",
+            "4. Test services using /api/ai/test endpoint"
+          ]
+        }
+      }
+    },
+    "aiTest": {
+      "method": "POST",
+      "url": "{{baseUrl}}/api/ai/test",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {},
+      "expectedResponse": {
+        "success": true,
+        "message": "AI services test completed",
+        "data": {
+          "results": {
+            "chat": {
+              "success": true,
+              "response": "Hello! I'm Sense AI, your accessible AI assistant. How can I help you today?",
+              "service": "local-fallback"
+            },
+            "speechToText": {
+              "success": true,
+              "service": "local-fallback"
+            },
+            "textToSpeech": {
+              "success": true,
+              "service": "local-fallback"
+            }
+          },
+          "summary": {
+            "chatWorking": true,
+            "speechToTextWorking": true,
+            "textToSpeechWorking": true
+          }
+        }
+      }
+    },
+    "userSignup": {
+      "method": "POST",
+      "url": "{{baseUrl}}/api/auth/signup",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "name": "Test User",
+        "email": "test@example.com",
+        "password": "TestPass123!",
+        "phone": "+1234567890"
+      },
+      "expectedResponse": {
+        "success": true,
+        "message": "User registered successfully",
+        "data": {
+          "user": {
+            "_id": "64a1b2c3d4e5f6789012345",
+            "name": "Test User",
+            "email": "test@example.com",
+            "phone": "+1234567890",
+            "subscriptionTier": "free",
+            "subscriptionExpiry": null,
+            "usageMetrics": {
+              "voiceMinutesUsed": 0,
+              "textCharactersUsed": 0,
+              "apiCallsUsed": 0,
+              "lastResetDate": "2024-01-15T10:30:00.000Z"
+            },
+            "provider": "local",
+            "avatar": null,
+            "isEmailVerified": false,
+            "isActive": true,
+            "lastLogin": null,
+            "createdAt": "2024-01-15T10:30:00.000Z",
+            "updatedAt": "2024-01-15T10:30:00.000Z"
+          },
+          "tokens": {
+            "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+            "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+          }
+        }
+      }
+    },
+    "userLogin": {
+      "method": "POST",
+      "url": "{{baseUrl}}/api/auth/login",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "email": "test@example.com",
+        "password": "TestPass123!"
+      },
+      "expectedResponse": {
+        "success": true,
+        "message": "Login successful",
+        "data": {
+          "user": {
+            "_id": "64a1b2c3d4e5f6789012345",
+            "name": "Test User",
+            "email": "test@example.com",
+            "phone": "+1234567890",
+            "subscriptionTier": "free",
+            "subscriptionExpiry": null,
+            "usageMetrics": {
+              "voiceMinutesUsed": 0,
+              "textCharactersUsed": 0,
+              "apiCallsUsed": 0,
+              "lastResetDate": "2024-01-15T10:30:00.000Z"
+            },
+            "provider": "local",
+            "avatar": null,
+            "isEmailVerified": false,
+            "isActive": true,
+            "lastLogin": "2024-01-15T12:45:00.000Z",
+            "createdAt": "2024-01-15T10:30:00.000Z",
+            "updatedAt": "2024-01-15T12:45:00.000Z"
+          },
+          "tokens": {
+            "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+            "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+          }
+        }
+      }
+    }
+  },
+  "testScenarios": {
+    "basicFlow": [
+      {
+        "step": 1,
+        "name": "Check AI Services Status",
+        "endpoint": "aiStatus",
+        "description": "Verify AI services are running and configured"
+      },
+      {
+        "step": 2,
+        "name": "Get Setup Recommendations",
+        "endpoint": "aiRecommendations",
+        "description": "Get recommendations for setting up AI services"
+      },
+      {
+        "step": 3,
+        "name": "Test AI Services",
+        "endpoint": "aiTest",
+        "description": "Test all AI services to ensure they're working"
+      }
+    ],
+    "authenticationFlow": [
+      {
+        "step": 1,
+        "name": "Register New User",
+        "endpoint": "userSignup",
+        "description": "Create a new user account"
+      },
+      {
+        "step": 2,
+        "name": "Login User",
+        "endpoint": "userLogin",
+        "description": "Login and get access token"
+      },
+      {
+        "step": 3,
+        "name": "Use Token for AI Endpoints",
+        "description": "Use the access token from login for authenticated AI endpoints"
+      }
+    ]
+  },
+  "errorTestCases": {
+    "invalidJson": {
+      "method": "POST",
+      "url": "{{baseUrl}}/api/ai/test",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": "{\n  \"invalid\": \"json\",\n  \"missing\": \"closing bracket\"",
+      "expectedResponse": {
+        "success": false,
+        "message": "Invalid JSON format"
+      }
+    },
+    "unauthorizedAccess": {
+      "method": "POST",
+      "url": "{{baseUrl}}/api/ai/chat",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "message": "This should fail without auth"
+      },
+      "expectedResponse": {
+        "success": false,
+        "message": "Access token is required"
+      }
+    },
+    "invalidEndpoint": {
+      "method": "GET",
+      "url": "{{baseUrl}}/api/ai/invalid",
+      "headers": {},
+      "body": null,
+      "expectedResponse": {
+        "success": false,
+        "message": "Route not found",
+        "path": "/api/ai/invalid"
+      }
+    }
+  },
+  "environmentVariables": {
+    "baseUrl": "http://localhost:5000",
+    "accessToken": "{{accessToken}}",
+    "refreshToken": "{{refreshToken}}"
+  },
+  "quickTestCommands": {
+    "curl": {
+      "aiStatus": "curl -X GET http://localhost:5000/api/ai/status",
+      "aiRecommendations": "curl -X GET http://localhost:5000/api/ai/recommendations",
+      "aiTest": "curl -X POST http://localhost:5000/api/ai/test -H \"Content-Type: application/json\" -d \"{}\"",
+      "userSignup": "curl -X POST http://localhost:5000/api/auth/signup -H \"Content-Type: application/json\" -d '{\"name\":\"Test User\",\"email\":\"test@example.com\",\"password\":\"TestPass123!\",\"phone\":\"+1234567890\"}'",
+      "userLogin": "curl -X POST http://localhost:5000/api/auth/login -H \"Content-Type: application/json\" -d '{\"email\":\"test@example.com\",\"password\":\"TestPass123!\"}'"
+    },
+    "powershell": {
+      "aiStatus": "Invoke-WebRequest -Uri http://localhost:5000/api/ai/status",
+      "aiRecommendations": "Invoke-WebRequest -Uri http://localhost:5000/api/ai/recommendations",
+      "aiTest": "Invoke-WebRequest -Uri http://localhost:5000/api/ai/test -Method POST -ContentType 'application/json' -Body '{}'",
+      "userSignup": "Invoke-WebRequest -Uri http://localhost:5000/api/auth/signup -Method POST -ContentType 'application/json' -Body '{\"name\":\"Test User\",\"email\":\"test@example.com\",\"password\":\"TestPass123!\",\"phone\":\"+1234567890\"}'",
+      "userLogin": "Invoke-WebRequest -Uri http://localhost:5000/api/auth/login -Method POST -ContentType 'application/json' -Body '{\"email\":\"test@example.com\",\"password\":\"TestPass123!\"}'"
+    }
+  }
+}
