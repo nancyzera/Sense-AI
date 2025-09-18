@@ -12,6 +12,12 @@ const config: Config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      fontFamily: {
+  			matter: [
+  				'Matter',
+  				'sans-serif'
+  			],
+  		},
       colors: {
         'sense-blue': "#5087FA",
         'sense-black-blue': "#222836",

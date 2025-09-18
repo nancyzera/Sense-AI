@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button'
+import { Menu } from 'lucide-react'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
@@ -13,7 +14,12 @@ const Navbar = () => {
                     </svg>
                     <h4 className='font-bold text-white'>Sense AI</h4>
                 </div>
-                <div>
+                <div className='md:hidden'>
+                     <div className='cursor-pointer hover:bg-muted/[50%] transition-all border rounded-full shadow-sm p-2'>
+                        <Menu className='text-white' />
+                    </div>
+                </div>
+                <div className='hidden md:block'>
                     <ul className='flex flex-row items-center space-x-8'>
                         <Link to={'/#features'}>
                             <li className='text-xs text-white md:text-sm'>Features</li>   

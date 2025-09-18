@@ -11,6 +11,12 @@ body {
   background-color: #1a1f2e;
 }
 
+@font-face {
+  font-family: 'Matter';
+  src: url('/fonts/matter/Matter-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
 
 ::-webkit-scrollbar {
   width: 6px;
