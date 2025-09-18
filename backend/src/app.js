@@ -11,6 +11,7 @@ import dotenv from 'dotenv';
 // Import routes
 import authRoutes from './routes/authRoutes.js';
 import aiRoutes from './routes/aiRoutes.js';
+import webSpeechRoutes from './routes/webSpeechRoutes.js';
 
 // Import middleware
 import { handleValidationErrors } from './middleware/validationMiddleware.js';
@@ -38,7 +39,7 @@ app.use(helmet({
 
 // CORS configuration
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
@@ -101,6 +102,7 @@ app.get('/health', (req, res) => {
 // API routes
 app.use('/api/auth', authRoutes);
 app.use('/api/ai', aiRoutes);
+app.use('/api/speech', webSpeechRoutes);
 
 // API documentation endpoint
 app.get('/api', (req, res) => {
@@ -121,6 +123,23 @@ app.get('/api', (req, res) => {
         usage: 'GET /api/auth/usage',
         google: 'GET /api/auth/google',
         github: 'GET /api/auth/github'
+      },
+      ai: {
+        status: 'GET /api/ai/status',
+        test: 'POST /api/ai/test',
+        recommendations: 'GET /api/ai/recommendations'
+      },
+      speech: {
+        info: 'GET /api/speech/info',
+        browserSupport: 'GET /api/speech/browser-support',
+        recognitionScript: 'GET /api/speech/script/recognition',
+        synthesisScript: 'GET /api/speech/script/synthesis',
+        completeScript: 'GET /api/speech/script/complete',
+        demo: 'GET /api/speech/demo',
+        voices: 'GET /api/speech/voices',
+        languages: 'GET /api/speech/languages',
+        usageTrack: 'POST /api/speech/usage-track',
+        usage: 'GET /api/speech/usage'
       }
     }
   });
