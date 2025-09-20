@@ -157,7 +157,7 @@ export function TextToSpeech({ onRestrictedAccess }: TextToSpeechProps) {
   };
 
   const handleLoadSample = () => {
-    setText("Welcome to Baho AI's text-to-speech feature. This technology converts written text into natural-sounding speech, helping break communication barriers for individuals who are mute or have speech difficulties. You can adjust voice settings, speed, and pitch to customize your experience.");
+    setText("Welcome to Sense AI's text-to-speech feature. This technology converts written text into natural-sounding speech, helping break communication barriers for individuals who are mute or have speech difficulties. You can adjust voice settings, speed, and pitch to customize your experience.");
   };
 
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {

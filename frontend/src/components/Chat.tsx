@@ -12,6 +12,9 @@ import { useSubscription } from "../contexts/SubscriptionContext";
 import { voiceChatService, ChatMessage } from '../utils/aiServices';
 import { toast } from "sonner";
 
+const BASE_URL = import.meta.env.VITE_AIML_API_BASE_URL;
+const API_KEY = import.meta.env.VITE_AIML_API_KEY;
+
 export function Chat() {
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
@@ -59,10 +62,10 @@ export function Chat() {
     setError(null);
   
     try {
-      const response = await fetch('https://api.aimlapi.com/v1/chat/completions', {
+      const response = await fetch(`${BASE_URL}/chat/completions`, {
         method: 'POST',
         headers: {
-          'Authorization': 'Bearer 08b94ae73e25493497d8c7c7bcbdc16b',
+          'Authorization': `Bearer ${API_KEY}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
@@ -73,6 +76,7 @@ export function Chat() {
           })),
         }),
       });
+      
   
       // Log the raw response for debugging
       console.log("Response status:", response.status);

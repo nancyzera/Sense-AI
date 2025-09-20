@@ -43,7 +43,7 @@ const testimonials = [
   {
     name: "Sarah Johnson",
     role: "Accessibility Advocate",
-    content: "Baho AI has completely transformed how I interact with technology. The voice recognition is incredibly accurate.",
+    content: "Sense AI has completely transformed how I interact with technology. The voice recognition is incredibly accurate.",
     rating: 5
   },
   {
@@ -71,7 +71,7 @@ export function HomePage() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center gap-2">
               <Brain className="h-8 w-8 text-primary" />
-              <span className="text-xl text-white">Baho AI</span>
+              <span className="text-xl text-white">Sense AI</span>
             </div>
             
             <div className="hidden md:flex items-center gap-6">
@@ -135,7 +135,7 @@ export function HomePage() {
           <div className="max-w-4xl mx-auto">
             <ImageWithFallback 
               src="/api/placeholder/800/450"
-              alt="Baho AI Dashboard"
+              alt="Sense AI Dashboard"
               className="w-full rounded-lg border border-border shadow-2xl"
             />
           </div>
@@ -333,7 +333,7 @@ export function HomePage() {
               Trusted by Thousands
             </h2>
             <p className="text-xl text-muted-foreground">
-              See what our users say about Baho AI
+              See what our users say about Sense AI
             </p>
           </div>
           
@@ -385,7 +385,7 @@ export function HomePage() {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <Brain className="h-6 w-6 text-primary" />
-                <span className="text-white">Baho AI</span>
+                <span className="text-white">Sense AI</span>
               </div>
               <p className="text-muted-foreground">
                 Breaking communication barriers through AI-powered accessibility solutions.
@@ -424,7 +424,7 @@ export function HomePage() {
           </div>
           
           <div className="border-t border-border mt-12 pt-8 text-center text-muted-foreground">
-            <p>&copy; 2024 Baho AI. All rights reserved.</p>
+            <p>&copy; 2024 Sense AI. All rights reserved.</p>
           </div>
         </div>
       </footer>
