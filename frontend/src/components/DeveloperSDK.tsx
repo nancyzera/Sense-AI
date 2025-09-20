@@ -146,7 +146,7 @@ export function DeveloperSDK() {
   const [testResults, setTestResults] = useState<any>(null);
 
   const generateApiKey = () => {
-    const key = `08b94ae73e25493497d8c7c7bcbdc16b`;
+    const key = import.meta.env.VITE_AIML_API_KEY;
     setApiKey(key);
   };
 

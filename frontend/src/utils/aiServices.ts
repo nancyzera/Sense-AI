@@ -210,7 +210,7 @@ export class ChatService {
   private baseUrl: string;
   private hasLoggedFallback: boolean = false; // Track if we've already logged the fallback message
 
-  constructor(apiKey: string = '08b94ae73e25493497d8c7c7bcbdc16b', provider: 'openai' | 'anthropic' | 'custom' = 'openai') {
+  constructor(apiKey: string = 'API_KEY, provider: 'openai' | 'anthropic' | 'custom' = 'openai') {
     this.apiKey = apiKey;
     
     this.apiKey = apiKey;
@@ -228,7 +228,8 @@ export class ChatService {
 
   private isValidApiKey(key: string): boolean {
     // Check for various API key formats
-    if (!key || key === '08b94ae73e25493497d8c7c7bcbdc16b') return false;
+    const API_KEY = import.meta.env.VITE_AIML_API_KEY;
+    if (!key || key === API_KEY) return false;
     
     // OpenAI format: sk-...
     if (key.startsWith('sk-')) return true;
@@ -533,11 +534,13 @@ export class VoiceChatService {
   }
 }
 
+const API_KEY = import.meta.env.VITE_AIML_API_KEY;
+
 // Export service instances
 export const voiceToTextService = new VoiceToTextService();
 export const textToSpeechService = new TextToSpeechService();
-export const chatService = new ChatService('08b94ae73e25493497d8c7c7bcbdc16b');
-export const voiceChatService = new VoiceChatService('08b94ae73e25493497d8c7c7bcbdc16b');
+export const chatService = new ChatService('API_KEY);
+export const voiceChatService = new VoiceChatService('API_KEY);
 
 // Utility function to configure API key if user has a valid one
 export function configureOpenAIKey(apiKey: string) {
