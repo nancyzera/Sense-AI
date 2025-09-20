@@ -48,7 +48,7 @@ export function APIKeyNotice({ onDismiss }: APIKeyNoticeProps) {
   };
 
   const handleSkip = () => {
-    toast.info('💡 No problem! Baho AI works great with demo responses. You can always configure your API key later.');
+    toast.info('💡 No problem! Sense AI works great with demo responses. You can always configure your API key later.');
     onDismiss?.();
   };
 

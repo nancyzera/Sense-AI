@@ -68,7 +68,7 @@ export function UpgradeModal({ isOpen, onClose }: UpgradeModalProps) {
         <div className="space-y-6">
           <div className="text-center">
             <p className="text-muted-foreground">
-              Unlock the full potential of Baho AI with advanced features and unlimited access
+              Unlock the full potential of Sense AI with advanced features and unlimited access
             </p>
           </div>
 

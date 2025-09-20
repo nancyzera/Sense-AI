@@ -9,7 +9,7 @@ import { Input } from "./ui/input";
 import { Alert, AlertDescription } from "./ui/alert";
 
 const codeExamples = {
-  javascript: `// Baho AI SDK - JavaScript Example
+  javascript: `// Sense AI SDK - JavaScript Example
 import { BahoAI } from '@baho/ai-sdk';
 
 const client = new BahoAI({
@@ -26,7 +26,7 @@ const transcription = await client.voiceToText({
 
 // Text-to-Speech
 const audioUrl = await client.textToSpeech({
-  text: 'Hello, this is Baho AI speaking',
+  text: 'Hello, this is Sense AI speaking',
   voice: 'female',
   speed: 1.0,
   format: 'mp3'
@@ -40,7 +40,7 @@ const analysis = await client.analyzeImage({
 
 console.log('Results:', { transcription, audioUrl, analysis });`,
 
-  python: `# Baho AI SDK - Python Example
+  python: `# Sense AI SDK - Python Example
 from baho_ai import BahoClient
 
 client = BahoClient(
@@ -57,7 +57,7 @@ transcription = client.voice_to_text(
 
 # Text-to-Speech
 audio_url = client.text_to_speech(
-    text="Hello, this is Baho AI speaking",
+    text="Hello, this is Sense AI speaking",
     voice="female",
     speed=1.0,
     format="mp3"

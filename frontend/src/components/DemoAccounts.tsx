@@ -83,7 +83,7 @@ export function DemoAccounts() {
   return (
     <div className="space-y-6">
       <div className="text-center">
-        <h2 className="text-2xl text-white mb-2">Try Baho AI Demo</h2>
+        <h2 className="text-2xl text-white mb-2">Try Sense AI Demo</h2>
         <p className="text-muted-foreground">
           Experience the full platform with pre-configured demo accounts
         </p>

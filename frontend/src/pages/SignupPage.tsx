@@ -114,7 +114,7 @@ export function SignupPage() {
           
           <div className="flex items-center justify-center gap-2 mb-2">
             <Brain className="h-8 w-8 text-primary" />
-            <span className="text-2xl text-white">Baho AI</span>
+            <span className="text-2xl text-white">Sense AI</span>
           </div>
           <p className="text-center text-muted-foreground">
             Create your account and start breaking communication barriers

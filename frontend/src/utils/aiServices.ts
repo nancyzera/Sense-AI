@@ -256,7 +256,7 @@ export class ChatService {
     if (!this.isValidApiKey(this.apiKey)) {
       // Only log once to avoid console spam
       if (!this.hasLoggedFallback) {
-        console.info('🤖 Baho AI: Using enhanced demo responses. Configure a valid API key for real AI integration.');
+        console.info('🤖 Sense AI: Using enhanced demo responses. Configure a valid API key for real AI integration.');
         this.hasLoggedFallback = true;
       }
       return this.getMockResponse(messages[messages.length - 1]?.content || '');
@@ -274,7 +274,7 @@ export class ChatService {
           messages: [
             {
               role: 'system',
-              content: 'You are Baho AI, an intelligent accessibility assistant designed to break communication barriers and empower individuals with disabilities. You provide support for voice-to-text, text-to-speech, vision assistance, mobility aid integration, and emergency features. Always be helpful, empathetic, and focused on accessibility solutions. Keep responses clear, concise, and actionable.'
+              content: 'You are Sense AI, an intelligent accessibility assistant designed to break communication barriers and empower individuals with disabilities. You provide support for voice-to-text, text-to-speech, vision assistance, mobility aid integration, and emergency features. Always be helpful, empathetic, and focused on accessibility solutions. Keep responses clear, concise, and actionable.'
             },
             ...messages.map(msg => ({
               role: msg.role,
@@ -308,7 +308,7 @@ export class ChatService {
 
   private getMockResponse(userMessage: string): ChatResponse {
     const responses = [
-      "I'm Baho AI, your accessibility assistant. I'm here to help break communication barriers and support your needs. How can I assist you today?",
+      "I'm Sense AI, your accessibility assistant. I'm here to help break communication barriers and support your needs. How can I assist you today?",
       "That's a great question! As your accessibility companion, I can help you with voice-to-text, text-to-speech, vision support, and mobility assistance.",
       "I understand you're looking for accessibility support. Let me help you find the right tools and features for your specific needs.",
       "Accessibility is at the heart of what I do. I'm designed to empower individuals with disabilities through intelligent assistance.",
@@ -357,7 +357,7 @@ export class ChatService {
     if (!this.isValidApiKey(this.apiKey)) {
       // Only log once to avoid console spam
       if (!this.hasLoggedFallback) {
-        console.info('🤖 Baho AI: Using enhanced demo responses for streaming.');
+        console.info('🤖 Sense AI: Using enhanced demo responses for streaming.');
         this.hasLoggedFallback = true;
       }
       const mockResponse = await this.sendMessage(messages, options);
@@ -382,7 +382,7 @@ export class ChatService {
           messages: [
             {
               role: 'system',
-              content: 'You are Baho AI, an intelligent accessibility assistant designed to break communication barriers and empower individuals with disabilities. You provide support for voice-to-text, text-to-speech, vision assistance, mobility aid integration, and emergency features. Always be helpful, empathetic, and focused on accessibility solutions. Keep responses clear, concise, and actionable.'
+              content: 'You are Sense AI, an intelligent accessibility assistant designed to break communication barriers and empower individuals with disabilities. You provide support for voice-to-text, text-to-speech, vision assistance, mobility aid integration, and emergency features. Always be helpful, empathetic, and focused on accessibility solutions. Keep responses clear, concise, and actionable.'
             },
             ...messages.map(msg => ({
               role: msg.role,
