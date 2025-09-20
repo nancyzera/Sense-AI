@@ -210,7 +210,7 @@ export class ChatService {
   private baseUrl: string;
   private hasLoggedFallback: boolean = false; // Track if we've already logged the fallback message
 
-  constructor(apiKey: string = 'API_KEY, provider: 'openai' | 'anthropic' | 'custom' = 'openai') {
+  constructor(apiKey: string = API_KEY, provider: 'openai' | 'anthropic' | 'custom' = 'openai') {
     this.apiKey = apiKey;
     
     this.apiKey = apiKey;
