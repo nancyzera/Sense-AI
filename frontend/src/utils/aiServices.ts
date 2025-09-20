@@ -539,8 +539,8 @@ const API_KEY = import.meta.env.VITE_AIML_API_KEY;
 // Export service instances
 export const voiceToTextService = new VoiceToTextService();
 export const textToSpeechService = new TextToSpeechService();
-export const chatService = new ChatService('API_KEY);
-export const voiceChatService = new VoiceChatService('API_KEY);
+export const chatService = new ChatService(API_KEY);
+export const voiceChatService = new VoiceChatService(API_KEY);
 
 // Utility function to configure API key if user has a valid one
 export function configureOpenAIKey(apiKey: string) {
